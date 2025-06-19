@@ -1,5 +1,6 @@
 package com.example.musicapp_2025exam
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -115,7 +116,22 @@ class MainActivity : ComponentActivity() {
                 Spacer(modifier = Modifier.height(8.dp))
 
 
-                Button(onClick = ) { }
+                Button(onClick = {
+                    val intent = Intent(this@MainActivity, DetailedView::class.java)
+                    intent.putStringArrayListExtra("songtitleList", ArrayList(songtitleList))
+                    intent.putStringArrayListExtra("artistList", ArrayList(artistList))
+                    intent.putStringArrayListExtra("ratingList", ArrayList(ratingList))
+                    intent.putStringArrayListExtra("commentsList", ArrayList(commentsList))
+                    startActivity(intent)
+                }) {
+                    Text(text = " View playlist ")
+                }
+
+
+                Spacer(modifier = Modifier.height(10.dp))
+                B
+
+                
 
 
 

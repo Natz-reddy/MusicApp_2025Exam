@@ -18,7 +18,7 @@ class DetailedView : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-          
+
                 }
             }
         }
