@@ -9,6 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.musicapp_2025exam.ui.theme.MusicApp_2025ExamTheme
@@ -18,6 +22,18 @@ class DetailedView : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+
+            val songtitleList = intent.getStringArrayListExtra("songtitleList") ?: arrayListOf()
+            val artistList = intent.getStringArrayListExtra("artistList") ?: arrayListOf()
+            val ratingList = intent.getStringArrayListExtra("ratingList") ?: arrayListOf()
+            val commentsList = intent.getStringArrayListExtra("commentsList") ?: arrayListOf()
+
+            var showsongs by remember { mutableStateOf(true) }
+
+            
+
+
+
 
                 }
             }
