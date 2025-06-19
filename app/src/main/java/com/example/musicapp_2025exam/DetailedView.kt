@@ -46,16 +46,19 @@ class DetailedView : ComponentActivity() {
             var showsongs by remember { mutableStateOf(true) }
 
 // column layout
-            Column (
-                modifier = Modifier.fillMaxSize().background(Color(0xAD72ABE0)), horizontalAlignment = Alignment.CenterHorizontally
-            ){
+            Column(
+                modifier = Modifier.fillMaxSize().background(Color(0xAD72ABE0)),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 Text(text = " Your Playlist ", fontSize = 20.sp, fontFamily = FontFamily.SansSerif)
 // changing bbutton colors
-                Button( onClick = {showsongs =! showsongs},colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF046698),
-                    contentColor = Color.White
-                )) {
-                   Text(if (showsongs) "Show songs rated higher than  2" else "Show all items")
+                Button(
+                    onClick = { showsongs = !showsongs }, colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF046698),
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text(if (showsongs) "Show songs rated higher than  2" else "Show all items")
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -86,22 +89,28 @@ class DetailedView : ComponentActivity() {
                     Spacer(modifier = Modifier.height(16.dp))
 
 
-
-
                 }
 
-                //Button() {
-                    //Text(text = "Average Rating")
+                Button(
+                    onClick = {}, colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF046698),
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text(text = "Average Rating")
                 }
                 //moves back to the home screen
-                Button(onClick = {
-                    val intent = Intent(this@DetailedView, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                },colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF046698),
-                    contentColor = Color.White
-                )
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Button(
+                    onClick = {
+                        val intent = Intent(this@DetailedView, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }, colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF046698),
+                        contentColor = Color.White
+                    )
                 ) {
                     Text("Back to Home Screen")
                 }
@@ -109,4 +118,5 @@ class DetailedView : ComponentActivity() {
         }
 
     }
+}
 
