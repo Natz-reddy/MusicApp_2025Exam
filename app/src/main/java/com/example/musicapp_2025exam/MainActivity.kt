@@ -41,18 +41,18 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
+// arrays to store the variables in
             val songtitleList = remember { mutableStateListOf< String>() }
             val artistList = remember { mutableStateListOf< String>() }
             val ratingList = remember { mutableStateListOf< String>() }
             val commentsList = remember { mutableStateListOf< String>() }
-
+// variables used to enter details in
             var songtitle by remember { mutableStateOf("") }
             var artist by remember { mutableStateOf("") }
             var rating by remember { mutableStateOf("") }
             var comments by remember { mutableStateOf("") }
             var errormessage by remember { mutableStateOf("") }
-
+//column layout
             Column (
                 modifier = Modifier.fillMaxSize().background(Color(0xAD72ABE0)),verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -72,7 +72,7 @@ class MainActivity : ComponentActivity() {
                     )
 
                 Spacer(modifier = Modifier.height(10.dp))
-
+// textfield used to store the information from the user
                 OutlinedTextField(
                     value = artist,
                     onValueChange = { artist = it },
@@ -105,7 +105,7 @@ class MainActivity : ComponentActivity() {
                     ))
 
                 Spacer(modifier = Modifier.height(10.dp))
-
+// if statement, as long as the fields arent empty the programm will run else an error message will show
                 Button(onClick = {
                     if (songtitle.isNotBlank() && artist.isNotBlank() && rating.isNotBlank() && comments.isNotBlank()) {
                        songtitleList.add(songtitle)
@@ -118,7 +118,7 @@ class MainActivity : ComponentActivity() {
                        rating = ""
                         comments = ""
                        errormessage = ""
-                    } else {
+                    } else {//error message
                         errormessage = "Please fill in all fields"
                     }
                 },colors = ButtonDefaults.buttonColors(
@@ -131,12 +131,12 @@ class MainActivity : ComponentActivity() {
 
                 if (errormessage.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(8.dp))
-
+// changing the color to red
                     Text ( errormessage, color = Color.Red, fontSize = 20.sp)
                 }
 
                 Spacer(modifier = Modifier.height(8.dp))
-
+                    //navigating to the next screen
 
                 Button(onClick = {
                     val intent = Intent(this@MainActivity, DetailedView::class.java)
@@ -153,7 +153,7 @@ class MainActivity : ComponentActivity() {
                 }
 
                 Spacer(modifier = Modifier.height(400.dp).align(Alignment.End ))
-
+//closing and exiting application completely
                 Button(onClick = {finish()},colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xF2EA574C),
                     contentColor = Color.White

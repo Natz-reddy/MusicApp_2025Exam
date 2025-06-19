@@ -37,20 +37,20 @@ class DetailedView : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
+//arrays that store the data entered
             val songtitleList = intent.getStringArrayListExtra("songtitleList") ?: arrayListOf()
             val artistList = intent.getStringArrayListExtra("artistList") ?: arrayListOf()
             val ratingList = intent.getStringArrayListExtra("ratingList") ?: arrayListOf()
             val commentsList = intent.getStringArrayListExtra("commentsList") ?: arrayListOf()
-
+//variables that allow to show all songs
             var showsongs by remember { mutableStateOf(true) }
 
-
+// column layout
             Column (
                 modifier = Modifier.fillMaxSize().background(Color(0xAD72ABE0)), horizontalAlignment = Alignment.CenterHorizontally
             ){
                 Text(text = " Your Playlist ", fontSize = 20.sp, fontFamily = FontFamily.SansSerif)
-
+// changing bbutton colors
                 Button( onClick = {showsongs =! showsongs},colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFF046698),
                     contentColor = Color.White
@@ -59,7 +59,7 @@ class DetailedView : ComponentActivity() {
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
-
+// value to store the index
                 val displayIndices = if (showsongs) {
                     songtitleList.indices
                 } else {
@@ -74,7 +74,7 @@ class DetailedView : ComponentActivity() {
                         .fillMaxWidth()
                         .verticalScroll(rememberScrollState())
                 ) {
-                    displayIndices.forEach { i ->
+                    displayIndices.forEach { i ->//displays the entered infromation
                         Text(
                             text = "Songs: ${songtitleList[i]}\nArtist: ${artistList[i]}\nRating: ${ratingList[i]}\nComments: ${commentsList[i]}",
                             modifier = Modifier.padding(vertical = 8.dp),
@@ -89,6 +89,11 @@ class DetailedView : ComponentActivity() {
 
 
                 }
+
+                //Button() {
+                    //Text(text = "Average Rating")
+                }
+                //moves back to the home screen
                 Button(onClick = {
                     val intent = Intent(this@DetailedView, MainActivity::class.java)
                     startActivity(intent)
@@ -104,4 +109,4 @@ class DetailedView : ComponentActivity() {
         }
 
     }
-}
+
