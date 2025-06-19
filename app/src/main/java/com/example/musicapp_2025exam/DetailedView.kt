@@ -58,7 +58,7 @@ class DetailedView : ComponentActivity() {
                         contentColor = Color.White
                     )
                 ) {
-                    Text(if (showsongs) "Show songs rated higher than  2" else "Show all items")
+                    Text(if (showsongs) "Hide songs" else "Show all songs")
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
