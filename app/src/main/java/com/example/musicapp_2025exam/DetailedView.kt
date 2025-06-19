@@ -57,19 +57,19 @@ class DetailedView : ComponentActivity() {
                         containerColor = Color(0xFF046698),
                         contentColor = Color.White
                     )
-                ) {
-                    Text(if (showsongs) "Hide songs" else "Show all songs")
+                ) {//shows or hides some songs
+                    Text(if (showsongs) "show songs with low ratings" else "Show all songs")
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
 // value to store the index
                 val displayIndices = if (showsongs) {
-                    songtitleList.indices
+                songtitleList.indices
                 } else {
-                    ratingList.mapIndexedNotNull { index, qty ->
-                        qty.toIntOrNull()?.takeIf { it >= 2 }?.let { index }
-                    }
+                ratingList.mapIndexedNotNull { index, qty ->
+                qty.toIntOrNull()?.takeIf { it >= 2 }?.let { index }
                 }
+            }
 
                 Column(
                     modifier = Modifier
