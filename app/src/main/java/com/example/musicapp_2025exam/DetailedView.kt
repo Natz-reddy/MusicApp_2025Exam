@@ -49,8 +49,8 @@ class DetailedView : ComponentActivity() {
             ){
                 Text(text = " Your Playlist ", fontSize = 20.sp, fontFamily = FontFamily.SansSerif)
 
-                Button(onClick = { showsongs = !showsongs }) {
-                    Text(if (showsongs)"Show songs with a rating above 2 " else " Show all" )
+                Button( onClick = {showsongs =! showsongs}) {
+                   Text(if (showsongs) "Show songs rated higher than  2" else "Show all items")
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
