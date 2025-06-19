@@ -132,25 +132,6 @@ class MainActivity : ComponentActivity() {
 
                 Spacer(modifier = Modifier.height(10.dp))
 
-                Button(onClick = {finish()}) {
-                    Text(text = " Exit App ")
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
