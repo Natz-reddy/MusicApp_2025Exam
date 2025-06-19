@@ -55,13 +55,35 @@ class DetailedView : ComponentActivity() {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
+                val displayIndices = if (showsongs) {
+                    songtitleList.indices
+                } else {
+                    ratingList.mapIndexedNotNull { index, qty ->
+                        qty.toIntOrNull()?.takeIf { it >= 2 }?.let { index }
+                    }
+                }
+
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .verticalScroll(rememberScrollState())
+                ) {
+                    displayIndices.forEach { i ->
+                        Text(
+                            text = "Songs: ${songtitleList[i]}\nArtist: ${artistList[i]}\nRating: ${ratingList[i]}\nComments: ${commentsList[i]}",
+                            modifier = Modifier.padding(vertical = 8.dp),
+                            fontSize = 16.sp
+                        )
+
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
 
 
 
 
-
-
-
+                }
                 Button(onClick = {
                     val intent = Intent(this@DetailedView, MainActivity::class.java)
                     startActivity(intent)
