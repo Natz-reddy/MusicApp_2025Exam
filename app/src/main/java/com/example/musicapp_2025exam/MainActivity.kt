@@ -1,10 +1,12 @@
 package com.example.musicapp_2025exam
 
+import android.R
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -49,7 +52,7 @@ class MainActivity : ComponentActivity() {
             var errormessage by remember { mutableStateOf("") }
 
             Column (
-                modifier = Modifier.fillMaxSize().padding(16.dp),verticalArrangement = Arrangement.Top,
+                modifier = Modifier.fillMaxSize().background(Color(0xFF3197D9)),verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
 
             ){
@@ -60,7 +63,7 @@ class MainActivity : ComponentActivity() {
                         value = songtitle,
                         onValueChange = { songtitle = it },
                         placeholder = { Text(" Song Title") },
-                        modifier = Modifier.fillMaxWidth())
+                        modifier = Modifier.width(400.dp))
 
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -68,7 +71,7 @@ class MainActivity : ComponentActivity() {
                     value = artist,
                     onValueChange = { artist = it },
                     placeholder = { Text(" Artist Name") },
-                    modifier = Modifier.fillMaxWidth())
+                    modifier = Modifier.width(400.dp))
 
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -76,7 +79,7 @@ class MainActivity : ComponentActivity() {
                     value = rating,
                     onValueChange = { rating = it },
                     placeholder = { Text(" Rating(1 to 5)") },
-                    modifier = Modifier.fillMaxWidth())
+                    modifier = Modifier.width(400.dp))
 
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -84,7 +87,7 @@ class MainActivity : ComponentActivity() {
                     value = comments,
                     onValueChange = { comments = it },
                     placeholder = { Text(" Comments ") },
-                    modifier = Modifier.fillMaxWidth())
+                    modifier = Modifier.width(400.dp))
 
                 Spacer(modifier = Modifier.height(10.dp))
 
