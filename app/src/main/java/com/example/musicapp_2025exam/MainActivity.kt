@@ -1,6 +1,6 @@
 package com.example.musicapp_2025exam
 
-import android.R
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -19,6 +19,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -63,7 +64,11 @@ class MainActivity : ComponentActivity() {
                         value = songtitle,
                         onValueChange = { songtitle = it },
                         placeholder = { Text(" Song Title") },
-                        modifier = Modifier.width(400.dp))
+                        modifier = Modifier.width(400.dp),colors = TextFieldDefaults.colors(
+                            focusedIndicatorColor = Color.White,
+                            unfocusedIndicatorColor = Color.White
+                        )
+                    )
 
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -71,7 +76,10 @@ class MainActivity : ComponentActivity() {
                     value = artist,
                     onValueChange = { artist = it },
                     placeholder = { Text(" Artist Name") },
-                    modifier = Modifier.width(400.dp))
+                    modifier = Modifier.width(400.dp),colors = TextFieldDefaults.colors(
+                        focusedIndicatorColor = Color.White,
+                        unfocusedIndicatorColor = Color.White
+                    ))
 
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -79,7 +87,10 @@ class MainActivity : ComponentActivity() {
                     value = rating,
                     onValueChange = { rating = it },
                     placeholder = { Text(" Rating(1 to 5)") },
-                    modifier = Modifier.width(400.dp))
+                    modifier = Modifier.width(400.dp),colors = TextFieldDefaults.colors(
+                        focusedIndicatorColor = Color.White,
+                        unfocusedIndicatorColor = Color.White
+                    ))
 
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -87,7 +98,10 @@ class MainActivity : ComponentActivity() {
                     value = comments,
                     onValueChange = { comments = it },
                     placeholder = { Text(" Comments ") },
-                    modifier = Modifier.width(400.dp))
+                    modifier = Modifier.width(400.dp),colors = TextFieldDefaults.colors(
+                        focusedIndicatorColor = Color.White,
+                        unfocusedIndicatorColor = Color.White
+                    ))
 
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -111,7 +125,6 @@ class MainActivity : ComponentActivity() {
                 }
 
 
-
                 if (errormessage.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(8.dp))
 
@@ -132,19 +145,11 @@ class MainActivity : ComponentActivity() {
                     Text(text = " View playlist ")
                 }
 
-
                 Spacer(modifier = Modifier.height(10.dp))
 
-
-
-
-
-
-
-
-
-
-
+                Button(onClick = {finish()}) {
+    Text(" Exit application")
+}
             }
             }
 

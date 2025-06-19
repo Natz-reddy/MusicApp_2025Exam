@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -45,11 +47,14 @@ class DetailedView : ComponentActivity() {
 
 
             Column (
-                modifier = Modifier.fillMaxSize().padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally
+                modifier = Modifier.fillMaxSize().background(Color(0xFF3197D9)), horizontalAlignment = Alignment.CenterHorizontally
             ){
                 Text(text = " Your Playlist ", fontSize = 20.sp, fontFamily = FontFamily.SansSerif)
 
-                Button( onClick = {showsongs =! showsongs}) {
+                Button( onClick = {showsongs =! showsongs},colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0x9FE1D25F),
+                    contentColor = Color.White
+                )) {
                    Text(if (showsongs) "Show songs rated higher than  2" else "Show all items")
                 }
 
@@ -88,7 +93,11 @@ class DetailedView : ComponentActivity() {
                     val intent = Intent(this@DetailedView, MainActivity::class.java)
                     startActivity(intent)
                     finish()
-                }) {
+                },colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0x9FE1D25F),
+                    contentColor = Color.White
+                )
+                ) {
                     Text("Back to Home Screen")
                 }
             }
