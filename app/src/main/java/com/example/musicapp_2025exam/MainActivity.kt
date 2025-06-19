@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -27,7 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.musicapp_2025exam.ui.theme.MusicApp_2025ExamTheme
-
+//Nathaniel Reddy - ST10488460
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,28 +84,50 @@ class MainActivity : ComponentActivity() {
                     placeholder = { Text(" Comments ") },
                     modifier = Modifier.fillMaxWidth())
 
+                Spacer(modifier = Modifier.height(10.dp))
 
+                Button(onClick = {
+                    if (songtitle.isNotBlank() && artist.isNotBlank() && rating.isNotBlank() && comments.isNotBlank()) {
+                       songtitleList.add(songtitle)
+                        artistList.add(artist)
+                      ratingList.add(rating)
+                        commentsList.add(comments)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                       songtitle= ""
+                        artist = ""
+                       rating = ""
+                        comments = ""
+                       errormessage = ""
+                    } else {
+                        errormessage = "Please fill in all fields"
+                    }
+                }) {
+                    Text("Add to PlayList")
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
             }
 
             }
