@@ -53,12 +53,35 @@ class MainActivity : ComponentActivity() {
                 Text(text = "Music Playlist", fontSize = 20.sp, fontFamily = FontFamily.SansSerif )
 
                 Spacer(modifier = Modifier.height(10.dp))
+                    OutlinedTextField(
+                        value = songtitle,
+                        onValueChange = { songtitle = it },
+                        placeholder = { Text(" Song Title") },
+                        modifier = Modifier.fillMaxWidth())
+
+                Spacer(modifier = Modifier.height(10.dp))
+
                 OutlinedTextField(
-                    value = songtitle,
-                    onValueChange = { songtitle = it },
-                    placeholder = { Text("Item name") },
-                    modifier = Modifier.fillMaxWidth()
-                )
+                    value = artist,
+                    onValueChange = { artist = it },
+                    placeholder = { Text(" Artist Name") },
+                    modifier = Modifier.fillMaxWidth())
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                OutlinedTextField(
+                    value = rating,
+                    onValueChange = { rating = it },
+                    placeholder = { Text(" Rating(1 to 5)") },
+                    modifier = Modifier.fillMaxWidth())
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                OutlinedTextField(
+                    value = comments,
+                    onValueChange = { comments = it },
+                    placeholder = { Text(" Comments ") },
+                    modifier = Modifier.fillMaxWidth())
 
 
 
@@ -75,11 +98,15 @@ class MainActivity : ComponentActivity() {
 
 
 
+
+
+
+
+
+
+                }
             }
-
-
-
 
             }
         }
-    }
+
