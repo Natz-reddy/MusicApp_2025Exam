@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -120,7 +121,10 @@ class MainActivity : ComponentActivity() {
                     } else {
                         errormessage = "Please fill in all fields"
                     }
-                }) {
+                },colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0x9FE1D25F),
+                    contentColor = Color.White
+                )) {
                     Text("Add to PlayList")
                 }
 
@@ -141,13 +145,19 @@ class MainActivity : ComponentActivity() {
                     intent.putStringArrayListExtra("ratingList", ArrayList(ratingList))
                     intent.putStringArrayListExtra("commentsList", ArrayList(commentsList))
                     startActivity(intent)
-                }) {
+                },colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0x9FE1D25F),
+                    contentColor = Color.White
+                )) {
                     Text(text = " View playlist ")
                 }
 
                 Spacer(modifier = Modifier.height(10.dp))
 
-                Button(onClick = {finish()}) {
+                Button(onClick = {finish()},colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xF2EA574C),
+                    contentColor = Color.White
+                )) {
     Text(" Exit application")
 }
             }
