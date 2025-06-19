@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
             var errormessage by remember { mutableStateOf("") }
 
             Column (
-                modifier = Modifier.fillMaxSize().background(Color(0xFF3197D9)),verticalArrangement = Arrangement.Top,
+                modifier = Modifier.fillMaxSize().background(Color(0xAD72ABE0)),verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
 
             ){
@@ -122,7 +122,7 @@ class MainActivity : ComponentActivity() {
                         errormessage = "Please fill in all fields"
                     }
                 },colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0x9FE1D25F),
+                    containerColor = Color(0xFF046698),
                     contentColor = Color.White
                 )) {
                     Text("Add to PlayList")
@@ -146,13 +146,13 @@ class MainActivity : ComponentActivity() {
                     intent.putStringArrayListExtra("commentsList", ArrayList(commentsList))
                     startActivity(intent)
                 },colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0x9FE1D25F),
+                    containerColor = Color(0xFF046698),
                     contentColor = Color.White
                 )) {
                     Text(text = " View playlist ")
                 }
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(400.dp).align(Alignment.End ))
 
                 Button(onClick = {finish()},colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xF2EA574C),

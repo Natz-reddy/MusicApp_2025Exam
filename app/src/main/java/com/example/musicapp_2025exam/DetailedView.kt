@@ -47,12 +47,12 @@ class DetailedView : ComponentActivity() {
 
 
             Column (
-                modifier = Modifier.fillMaxSize().background(Color(0xFF3197D9)), horizontalAlignment = Alignment.CenterHorizontally
+                modifier = Modifier.fillMaxSize().background(Color(0xAD72ABE0)), horizontalAlignment = Alignment.CenterHorizontally
             ){
                 Text(text = " Your Playlist ", fontSize = 20.sp, fontFamily = FontFamily.SansSerif)
 
                 Button( onClick = {showsongs =! showsongs},colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0x9FE1D25F),
+                    containerColor = Color(0xFF046698),
                     contentColor = Color.White
                 )) {
                    Text(if (showsongs) "Show songs rated higher than  2" else "Show all items")
@@ -94,7 +94,7 @@ class DetailedView : ComponentActivity() {
                     startActivity(intent)
                     finish()
                 },colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0x9FE1D25F),
+                    containerColor = Color(0xFF046698),
                     contentColor = Color.White
                 )
                 ) {
