@@ -51,7 +51,7 @@ class DetailedView : ComponentActivity() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(text = " Your Playlist ", fontSize = 20.sp, fontFamily = FontFamily.SansSerif)
-// changing bbutton colors
+// changing button colors
                 Button(
                     onClick = { showsongs = !showsongs }, colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF046698),
@@ -65,7 +65,7 @@ class DetailedView : ComponentActivity() {
 // value to store the index
                 val displayIndices = if (showsongs) {
                 songtitleList.indices
-                } else {
+                } else {//creates an index to count if the value is higher or lower
                 ratingList.mapIndexedNotNull { index, qty ->
                 qty.toIntOrNull()?.takeIf { it >= 2 }?.let { index }
                 }
@@ -77,7 +77,7 @@ class DetailedView : ComponentActivity() {
                         .fillMaxWidth()
                         .verticalScroll(rememberScrollState())
                 ) {
-                    displayIndices.forEach { i ->//displays the entered infromation
+                    displayIndices.forEach { i ->//displays the entered information
                         Text(
                             text = "Songs: ${songtitleList[i]}\nArtist: ${artistList[i]}\nRating: ${ratingList[i]}\nComments: ${commentsList[i]}",
                             modifier = Modifier.padding(vertical = 8.dp),
